@@ -2,6 +2,7 @@ import { getRowValues, getColValues } from './utils/getValues.js';
 import { createBoard } from './utils/setup.js';
 
 const sudukoBoardEl = document.querySelector('.suduko-board');
+const gameSize = 4;
 
 //intial values
 const game = [
@@ -24,24 +25,22 @@ for (let input of userInputEl) {
 const handleUserInput = (e) => {
   const value = e.target.value;
   //return if a user removes there input
-  if (value === '') return;
+  if (value === '' || value <= 0 || value > gameSize) return;
   const parentSquare = e.target.parentElement;
-  const inputRow = parentSquare.getAttribute('data-row');
-  const inputCol = parentSquare.getAttribute('data-col');
+  const inputRowId = parentSquare.getAttribute('data-row');
+  const inputColId = parentSquare.getAttribute('data-col');
 
-  const isValid = validateInput({ value, inputRow, inputCol });
+  const isValid = validateInput({ value, inputRowId, inputColId });
 
   if (isValid) {
     parentSquare.innerHTML = value;
-  } else {
-    console.log('its invalid!');
   }
 };
 
 //check input value against other current row and column values
-const validateInput = ({ value, inputRow, inputCol }) => {
+const validateInput = ({ value, inputRowId, inputColId }) => {
   const currentValuesSet = new Set(
-    getRowValues(inputRow).concat(getColValues(inputCol))
+    getRowValues(inputRowId).concat(getColValues(inputColId))
   );
   return !currentValuesSet.has(value);
 };
