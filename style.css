@@ -24,6 +24,7 @@ body {
 
 h1 {
   margin-bottom: 1.5rem;
+  font-size: 3rem;
 }
 
 .sudoku-board {
@@ -41,20 +42,20 @@ h1 {
 }
 
 .row:nth-child(2n):not(:last-child) {
-  border-bottom: 4px solid;
+  border-bottom: 0.25rem solid;
 }
 
 .square {
   width: 25%;
   height: 100%;
-  border: 1px solid;
+  border: 0.1rem solid;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .square:nth-child(2n):not(:last-child) {
-  border-right: 4px solid;
+  border-right: 0.25rem solid;
 }
 
 input[type='number'] {
