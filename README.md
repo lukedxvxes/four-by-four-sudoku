@@ -2,7 +2,7 @@
 vanilla js, css + html - simple 4x4 sudoku game
 
 
-1st round technical interview question. Wasnt completed within the hour. 
+
 
 ## Potential Improvements: 
 - Display an error or red border around the tile when a user adds an invalid number
