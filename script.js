@@ -17,7 +17,7 @@ createBoard({ game, wrapper: sudukoBoardEl });
 //add event listeners to inputs
 const userInputEl = document.querySelectorAll('input[type="number"]');
 for (let input of userInputEl) {
-  input.addEventListener('change', (e) => handleUserInput(e));
+  input.addEventListener('keyup', (e) => handleUserInput(e));
 }
 
 //handle user inputs
