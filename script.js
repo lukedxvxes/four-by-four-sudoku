@@ -1,8 +1,7 @@
-import { getRowValues, getColValues } from './utils/getValues.js';
+import { validateInput } from './utils/validate.js';
 import { createBoard } from './utils/setup.js';
 
 const sudukoBoardEl = document.querySelector('.suduko-board');
-const gameSize = 4;
 
 //intial values
 const game = [
@@ -34,15 +33,4 @@ const handleUserInput = (e) => {
   if (isValid) {
     parentSquare.innerHTML = value;
   }
-};
-
-//check input value against other current row and column values
-const validateInput = ({ value, inputRowId, inputColId }) => {
-  //return if a user removes there input
-  if (value === '' || value <= 0 || value > gameSize) return;
-
-  const currentValuesSet = new Set(
-    getRowValues(inputRowId).concat(getColValues(inputColId))
-  );
-  return !currentValuesSet.has(value);
 };
