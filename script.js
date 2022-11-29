@@ -1,7 +1,7 @@
 import { validateInput } from './utils/validate.js';
 import { createBoard } from './utils/setup.js';
 
-const sudukoBoardEl = document.querySelector('.suduko-board');
+const sudukoBoardEl = document.querySelector('.sudoku-board');
 
 //intial values
 const game = [
