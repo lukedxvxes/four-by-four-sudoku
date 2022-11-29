@@ -24,8 +24,7 @@ for (let input of userInputEl) {
 //handle user inputs
 const handleUserInput = (e) => {
   const value = e.target.value;
-  //return if a user removes there input
-  if (value === '' || value <= 0 || value > gameSize) return;
+
   const parentSquare = e.target.parentElement;
   const inputRowId = parentSquare.getAttribute('data-row');
   const inputColId = parentSquare.getAttribute('data-col');
@@ -39,6 +38,9 @@ const handleUserInput = (e) => {
 
 //check input value against other current row and column values
 const validateInput = ({ value, inputRowId, inputColId }) => {
+  //return if a user removes there input
+  if (value === '' || value <= 0 || value > gameSize) return;
+
   const currentValuesSet = new Set(
     getRowValues(inputRowId).concat(getColValues(inputColId))
   );
